@@ -40,7 +40,11 @@ app.get("/students/:studentId", function(req, res) {
 
 // add new student to the roster!
 app.post("/add", function(req, res) {
-    req.json(roster.push);
+    console.log(req.body);
+    if (req.body) {
+        roster.push(req.body);
+        res.send('Student added!');
+    }
 });
 
 app.listen(PORT, function() {
